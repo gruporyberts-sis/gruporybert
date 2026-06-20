@@ -1,12 +1,8 @@
 import { createClient as createSupabaseClient } from '@supabase/supabase-js'
 
+const supabaseUrl = 'https://sfgsozzpmlzohjbiihdk.supabase.co'
+const supabaseAnonKey = 'sb_publishable_XMw7bz3TKImzxRNs--_hrw_YhT9DKP2'
+
 export function createClient() {
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
-  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-
-  if (!supabaseUrl || !supabaseAnonKey) {
-    throw new Error('Faltan las variables de entorno de Supabase')
-  }
-
   return createSupabaseClient(supabaseUrl, supabaseAnonKey)
 }
